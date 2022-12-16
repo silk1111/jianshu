@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {RecommendAuthorWrapper, RecommendAuthorHeader, RecommendAuthorList, RecommendAuthorItem, RecommendAuthorImg, RecommendAuthorFollow, RecommendAuthorFooter} from '../style'
 import {connect} from 'react-redux'
 import {getAuthorListAction} from '../store/action'
- class RecommendAuthor extends Component {
+ class RecommendAuthor extends PureComponent {
   render() {
     const { authorList, getAuthorList } = this.props;
     return (
@@ -22,7 +22,7 @@ import {getAuthorListAction} from '../store/action'
                 return (
                   <RecommendAuthorItem key={authorObj.get('id')}>
                   <RecommendAuthorImg >
-                    <img src={authorObj.get('pic')} alt='用户头像加载失败'/>
+                    <img src={authorObj.get('pic')} alt=''/>
                   </RecommendAuthorImg>
                   <RecommendAuthorFollow>
                     <span className="iconfont">&#xe600;</span>关注

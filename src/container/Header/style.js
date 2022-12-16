@@ -1,18 +1,22 @@
 import styled from 'styled-components'
-import logopic from '../../statics/logo.png'
+import logopic from '../../statics/assets/logo.png'
 export const HeaderWrapper = styled.nav`
-    position: relative;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top:0;
     width: 100%;
     height: 56px;
     background-color: white;
     border-bottom: 1px solid #f0f0f0;
+    z-index: 999;
 `;
 
 export const Logo = styled.a`
     position:absolute;
     display:block;
     top: 0;
-    left:230px;
+    left: 5%;
     width: 100px;
     height: 56px;
     background: url(${logopic});
@@ -23,6 +27,9 @@ export const Nav = styled.div`
     margin: 0 auto;
     width:960px;
     height:56px;
+    padding: 0 15px;
+    box-sizing: border-box;
+
 `;
 
 export const NavItem = styled.div`
@@ -34,7 +41,7 @@ export const NavItem = styled.div`
         float:right;
         color:#969696;
         font-size: 15px;
-        margin-left: 5px;
+        margin: 0px 6px 0px 10px;
         .iconfont {
             position: relative;
             bottom: 0px;
@@ -128,9 +135,9 @@ export const SearchInfo = styled.div`
     left: 0;
     top: 56px;
     padding: 0 20px;
-    box-shadow: 0 0 8px rgba(0,0,0,.2)
+    box-shadow: 0 0 8px rgba(0,0,0,.2);
 
-`
+`;
 
 export const SearchInfoTitle = styled.div`
     margin-top: 20px;
@@ -138,13 +145,13 @@ export const SearchInfoTitle = styled.div`
     line-height:20px;
     font-size: 14px;
     color: #969696;
-`
+`;
 
 export const SearchInfoSwitch = styled.span`
     float: right;
     font-size: 13px;
 
-`
+`;
 export const SearchInfoItem = styled.a`
     display: block;
     float: left;
@@ -157,13 +164,12 @@ export const SearchInfoItem = styled.a`
     border: 1px solid #ddd;
     color: #787878;
     border-radius: 3px;
-`
+`;
 
 export const Addition = styled.div`
     position: absolute;
-    right: 240px;
+    right: 0;
     top: 0;
-    width:400px;
     height:56px;
 `;
 
@@ -181,12 +187,70 @@ export const Button = styled.button`
     }
     float: right;
     height: 38px;
-    line-height:38px;
+    line-height:36px;
     text-align: center;
-    padding: 0 20px;
-    margin: 9px 12px 0px;
+    padding: 0 18px;
+    margin: 9px 13px 0px 5px;
     border: 1px solid #ec6149;
     border-radius: 19px;
     font-size: 15px;
 
+`;
+export const ArticleHeadWrapper = styled.div`
+    position: fixed;
+    height:56px;
+    min-height: 56px;
+    max-height: 56px;
+    width: 100%;
+`;
+
+export const ArticleHead = styled.div`
+    display: flex;
+    justify-content: space-between;//两端对齐
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    background-color: white;
+`;
+
+export const ArticleHeadTitle = styled.h1`
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 56px;
+`;
+
+export const ArticleAuthor = styled.div`
+    display:flex;
+    height: 56px;
+    align-items: center;
+    .authorImg {
+        max-width: 40px;
+        max-height: 40px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+    }
+    .authorName {
+        color: #7d7d7d;
+        margin: 0 10px;
+    }
+    .headerButton {
+        border: 1px solid #ec7259;
+        border-radius: 50px;
+        padding: 4px 12px;
+
+    }
+    .follow {
+        color: #ec7259;
+        background-color: #fff;
+    }
+    .support {
+        margin-left: 8px;
+        background-color: #ec7259;
+        color: white;
+
+    }
 `;

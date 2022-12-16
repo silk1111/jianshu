@@ -3,7 +3,11 @@ import {fromJS} from 'immutable'
 //immutable对象不可修改，它被用于保证原状态不被修改
 const defaultState = fromJS({
     searchFocused : false ,
-    List : []
+    List : [],
+    isArticle: false,
+    articleTitle: '文章标题',
+    articleImg:'https://img2.baidu.com/it/u=319818087,3660873740&fm=253&fmt=auto&app=138&f=JPEG?w=650&h=420',
+    articleAuthorName: '只如初见_2020'
 }) 
 const reducer =  (preState = defaultState,action) => {
      const {type, data} = action;
@@ -16,6 +20,15 @@ const reducer =  (preState = defaultState,action) => {
             return preState.set("searchFocused",false)
         case constants.CHANGE_LIST:
             return preState.set("List", data)
+        case constants.CHANGE_HEADER_ARTICLE:
+            const {isArticle, articleTitle, articleAuthorName, articleImg} = data;
+            return preState.merge({
+                "isArticle":fromJS(isArticle),
+                "articleTitle":fromJS(articleTitle),
+                "articleImg": fromJS(articleImg),
+                "articleAuthorName":fromJS(articleAuthorName),
+            
+            })
         default:
             break;
      }

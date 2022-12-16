@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
-import {ListInfo , ListItem, ListAdv, PicClosed} from '../style'
+import React, { PureComponent } from 'react'
+import {ListInfo , ListItem, ListAdv, PicClosed, LoadMore, ListBottom, BottomItem} from '../style'
 import {connect} from 'react-redux'
- class List extends Component {
+import {getMoreArtListAction} from '../store/action'
+import {Link} from 'react-router-dom'
+ class List extends PureComponent {
   render() {
-    const {articleList} = this.props;
+    const {articleList, loadMore, page} = this.props;
     return (
       <div>
       {
@@ -18,7 +20,42 @@ import {connect} from 'react-redux'
       }
       {
         articleList.map((item, index) => {
-          if(item.get('haveImg') === 'have-img'){
+          return(
+            <Link to='/detail' key={item.get('id')} style={{textDecoration: "none"}}>
+
+              <ListItem className={item.get('haveImg')==='have-img' ? 'have-img' : ''} >
+             {
+              item.get('haveImg')=='have-img' ? <img  src={item.get('imgURL')} alt="" /> : ''
+             } 
+            <ListInfo className='content'>
+                 <h3 className='title'>{item.get('title')}</h3>
+                 <p className='desc'>{item.get('desc')}</p>
+               </ListInfo>
+               <ListBottom>
+                 <BottomItem className='hot'>
+                   <i className='iconfont'>&#xe60d;</i>
+                   {item.get('hot')}
+                 </BottomItem>
+                 <a className='authorName'>{item.get('authorName')}</a>
+                 <BottomItem>
+                   <i className='iconfont'>&#xe685;</i>
+                   {item.get('comment')}
+                 </BottomItem>
+                 <BottomItem>
+                   <i className='iconfont'>&#xe635;</i>
+                   {item.get('like')}
+                 </BottomItem>   
+                   <BottomItem className={ item.get('reward') ? '' : 'notshow'}>
+                     <i className='iconfont'>&#xe611;</i>
+                     {item.get('reward')}
+                   </BottomItem>                   
+               </ListBottom>
+            </ListItem>
+            </Link>
+            
+         
+         )
+          {/* if(item.get('haveImg') === 'have-img'){
             return(
                <ListItem className='have-img' key={item.get('id')}>
                   <img src={item.get('imgURL')} alt="文章图片加载失败" />
@@ -26,62 +63,80 @@ import {connect} from 'react-redux'
                     <h3 className='title'>{item.get('title')}</h3>
                     <p className='desc'>{item.get('desc')}</p>
                   </ListInfo>
+                  <ListBottom>
+                    <BottomItem className='hot'>
+                      <i className='iconfont'>&#xe60d;</i>
+                      {item.get('hot')}
+                    </BottomItem>
+                    <a className='authorName'>{item.get('authorName')}</a>
+                    <BottomItem>
+                      <i className='iconfont'>&#xe685;</i>
+                      {item.get('comment')}
+                    </BottomItem>
+                    <BottomItem>
+                      <i className='iconfont'>&#xe635;</i>
+                      {item.get('like')}
+                    </BottomItem>   
+                      <BottomItem className={ item.get('reward') ? '' : 'notshow'}>
+                        <i className='iconfont'>&#xe611;</i>
+                        {item.get('reward')}
+                      </BottomItem>                   
+                  </ListBottom>
                </ListItem>
             )
           }
           else{
             return(
                <ListItem key={item.get('id')}>
-               <ListInfo className='content'>
-               <h3 className='title'>{item.get('title')}</h3>
-               <p className='desc'>{item.get('desc')}</p>
-             </ListInfo>
+                <ListInfo className='content'>
+                  <h3 className='title'>{item.get('title')}</h3>
+                  <p className='desc'>{item.get('desc')}</p>
+                </ListInfo>
+                <ListBottom>
+                    <BottomItem className='hot'>
+                      <i className='iconfont'>&#xe60d;</i>
+                      {item.get('hot')}
+                    </BottomItem>
+                    <a className='authorName'>{item.get('authorName')}</a>
+                    <BottomItem>
+                      <i className='iconfont'>&#xe685;</i>
+                      {item.get('comment')}
+                    </BottomItem>
+                    <BottomItem>
+                      <i className='iconfont'>&#xe635;</i>
+                      {item.get('like')}
+                    </BottomItem>   
+                      <BottomItem className={ item.get('reward') ? '' : 'notshow'}>
+                        <i className='iconfont'>&#xe611;</i>
+                        {item.get('reward')}
+                      </BottomItem>                   
+                </ListBottom>
                </ListItem>
             )
-          }
+          } */}
           
         
       })
       }
-    {
-        // <ListItem >
-        //         <img src="https://img2.baidu.com/it/u=319818087,3660873740&fm=253&fmt=auto&app=138&f=JPEG?w=650&h=420" alt="文章图片加载失败" />
-        //         <ListInfo className='content'>
-        //         <h3 className='title'>一个人施工方回复</h3>
-        //         <p className='desc'>符合何方神圣反馈问卷和韩国夫人国防军广泛发改委如图五亿股发帖我也投入分发给参与过附件为国防外交</p>
-        //     </ListInfo>
-        // </ListItem>
-        // <ListItem className='have-img'>
-        //         <img src="https://img2.baidu.com/it/u=319818087,3660873740&fm=253&fmt=auto&app=138&f=JPEG?w=650&h=420" alt="文章图片加载失败" />
-        //         <ListInfo className='content'>
-        //         <h3 className='title'>一个人施工方回复</h3>
-        //         <p className='desc'>符合何方神圣反馈问卷和韩国夫人国防军广泛发改委如图五亿股发帖我也投入分发给参与过附件为国防外交</p>
-        //     </ListInfo>
-        // </ListItem>
-        // <ListItem className='have-img'>
-        //         <ListInfo className='content'>
-        //         <h3 className='title'>一个人施工方回复</h3>
-        //         <p className='desc'>符合何方神圣反馈问卷和韩国夫人国防军广泛发改委如图五亿股发帖我也投入分发给参与过附件为国防外交</p>
-        //     </ListInfo>
-        //     <img src="https://img2.baidu.com/it/u=319818087,3660873740&fm=253&fmt=auto&app=138&f=JPEG?w=650&h=420" alt="文章图片加载失败" />
-
-        // </ListItem>
-      }
-
+      <LoadMore onClick={() => {loadMore(page)} }>阅读更多</LoadMore>
       </div>
     )
   }
 }
 
 
-
-
 const mapStateToProps = (state) => {
   return {
-    articleList : state.get('home').get('articleList')
+    articleList : state.get('home').get('articleList'),
+    page : state.get('home').get('articlePage')
   }
 }
 const mapDispatchToProps = (dispatch) => {
+  return {
+    loadMore: (page) => {      
+      dispatch(getMoreArtListAction(page))
+    }
+  }
 
 }
 export default connect(mapStateToProps,mapDispatchToProps)(List)

@@ -1,4 +1,4 @@
-import {HANDLE_INPUT_FOCUS, HANDLE_INPUT_BLUR ,CHANGE_LIST} from './constants'
+import {HANDLE_INPUT_FOCUS, HANDLE_INPUT_BLUR ,CHANGE_LIST, CHANGE_HEADER_ARTICLE} from './constants'
 // import constants from './index.js'
 import axios from 'axios'
 export const handleInputFocusAction = data => ({type:HANDLE_INPUT_FOCUS,data});
@@ -15,3 +15,4 @@ export const getList = () => {
         })
     }
 }
+export const changeHeaderArticle = (data) => ({type:CHANGE_HEADER_ARTICLE,data})

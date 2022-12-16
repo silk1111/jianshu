@@ -44,4 +44,18 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+
+//my CSS
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+    font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+}
+
 `

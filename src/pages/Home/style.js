@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 
 export const HomeWrapper = styled.div`
+    padding-top: 56px;
     overflow: hidden;
-    margin-right: -15px;    
+    margin-right: -15px;
+    z-index: 1;    
 `;
 
 export const HomeLeft = styled.div`
@@ -42,28 +44,23 @@ export const ListItem = styled.div`
 
         }
         img {
-            display: block;
             position: absolute;
             right:0;
-            top: 20px;
-           // float: right;
+            top: 30px;
             width: 150px;
             height: 100px;
             border-radius: 4px;
             border: 1px solid #f0f0f0;
         }
+        
 
     };
-
-    img {
-   
-        display:none;
-    }
 
 `;
 
 export const ListInfo = styled.div`
     max-width: 625px;
+    margin-bottom: 8px;
     .title {
         line-height: 27px;
         font-size: 18px;
@@ -75,6 +72,47 @@ export const ListInfo = styled.div`
         line-height: 24px;
         color: #999;
     }
+`;
+
+export const ListBottom = styled.div`
+    line-height: 20px;
+    font-size: 12px;
+    color: #b4b4b4;
+    .authorName {
+        margin-right: 10px;
+
+    }
+    .authorName:hover {
+        color: #777;
+
+    }
+`;
+
+export const BottomItem = styled.span`
+    margin-right: 10px;
+    height: 13.5px;
+    &.hot {
+        color: #ea6f5a;
+    }
+    &.notshow {
+        display: none;
+    }
+    .iconfont {
+        font-size: 14px;
+        margin-right: 2px;
+    }
+`;
+export const LoadMore = styled.div`
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #a5a5a5;
+    text-align: center;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    margin: 30px auto 60px;
+    display: block;
+    color: white;
 `;
 
 export const RecommendWrapper = styled.div`
@@ -209,10 +247,14 @@ export const RecommendAuthorImg = styled.div`
     float: left;
     margin-right: 10px;
     img {
+        max-width: 48px;
+        max-height: 48px;
         width: 48px;
-        height: 48px;
+        height:48px;
         border-radius: 50%;
         border: 1px solid #ddd;
+        font-size: 3px;
+
     }
 `;
 
@@ -241,3 +283,27 @@ export const RecommendAuthorFooter = styled.div`
     }
    
 `
+
+export const BackTop = styled.a`
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    border: 1px solid #dcdcdc;
+    padding: 15px;
+    box-sizing: border-box;
+    display: block;
+    &:hover {
+        background-color: #f7f7f7;
+    }
+    .iconfont {
+        height: 20px;
+        width: 20px;
+        font-size: 20px;
+        display: block;
+        box-sizing: border-box;
+
+    }
+
+`;
