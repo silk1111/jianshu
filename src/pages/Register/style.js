@@ -234,6 +234,22 @@ export const SignInput = styled.div`
         border: 1px solid #c8c8c8;
         background-color: hsla(0,0%,71%,.1);
     }
+    &.hide {
+        display: none;
+    }
+    .sendVerCode {
+        position: absolute;
+        right: 7px;
+        top: 7px;
+        width: 100px;
+        height: 36px;
+        font-size: 13px;
+        color: #fff;
+        background-color: #42c02e;
+        border-radius: 20px;
+        line-height: 36px;
+        border: none;
+    }
     
    
 `;

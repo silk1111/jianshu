@@ -15,8 +15,13 @@ import {
     SignButton
 } from './style'
 import { Link } from 'react-router-dom'
-export default class Login extends Component {
+import { connect } from 'react-redux'
+import {changeIsVerShowAction} from './store/action'
+class Register extends Component {
   render() {
+    const {isVerCodeShow, changeIsVerShow} = this.props;
+    console.log('UI组件收到的--',isVerCodeShow);
+    
     return (
       <Sign>
        
@@ -49,8 +54,14 @@ export default class Login extends Component {
                   <i className='iconfont'>&#xe6a2;</i>
                 </SignInput>
                 <SignInput>
-                  <input type="text" name="" id="" placeholder='手机号'/>
-                  <i className='iconfont'>&#xe6a2;</i>
+                  <input type="text" name="" id="" placeholder='手机号' onChange={this.handPhoneNumber}/>
+                  <i className='iconfont'>&#xe637;</i>
+                </SignInput>
+                <SignInput className={isVerCodeShow? '' : 'hide'}>
+                  <input type="text" name="" id=""  placeholder='手机验证码' onChange={this.handPhoneNumber}/>
+                  <i className='iconfont'>&#xe613;</i>
+                  <a className='sendVerCode'>发送验证码</a>
+
                 </SignInput>
                 <SignInput >
                   <input type="password " className='input-down' name="" id="" placeholder='密码'/>
@@ -78,4 +89,28 @@ export default class Login extends Component {
       </Sign>
     )
   }
+  handPhoneNumber = (event) => {
+     if(event.target.value >= 0 && this.props.isVerCodeShow == false){//只执行一次
+      this.props.changeIsVerShow(true);
+     }
+    
+  }
+  componentWillUnmount(){
+    this.props.changeIsVerShow(false);
+
+  }
 }
+
+const mapStateToProps = (state) => {
+  console.log('容器组件取到的state为',state.getIn(['register','isVerCodeShow']));
+  
+    return {
+      isVerCodeShow : state.getIn(['register','isVerCodeShow'])
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeIsVerShow : (data) => {dispatch(changeIsVerShowAction(data))}
+  }
+}
+ export default connect(mapStateToProps, mapDispatchToProps)(Register)

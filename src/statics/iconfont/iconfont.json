@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5650918",
+      "name": "手机",
+      "font_class": "shouji1",
+      "unicode": "e637",
+      "unicode_decimal": 58935
+    },
+    {
+      "icon_id": "27253672",
+      "name": "验证码",
+      "font_class": "yanzhengma",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
       "icon_id": "1309",
       "name": "退出",
       "font_class": "tuichu",

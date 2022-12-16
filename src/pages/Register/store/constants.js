@@ -1,0 +1,1 @@
+export const IS_VERIFICATION_CODE_SHOW = 'register/isVerificationCode'
