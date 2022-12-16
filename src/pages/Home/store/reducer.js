@@ -24,6 +24,7 @@ const reducer =  (preState = defaultState,action) => {
 
         case GET_HOME_DATA:
             //首次加载时显示的数据
+            
             return preState.merge({
                 "articleList":fromJS(data.articleList),
                 "authorList":fromJS(data.authorList)

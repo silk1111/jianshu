@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
  class List extends PureComponent {
   render() {
     const {articleList, loadMore, page} = this.props;
+
     return (
       <div>
       {
@@ -20,8 +21,9 @@ import {Link} from 'react-router-dom'
       }
       {
         articleList.map((item, index) => {
+          
           return(
-            <Link to='/detail' key={item.get('id')} style={{textDecoration: "none"}}>
+            <Link to={`/detail/${item.get('id')}`} key={item.get('id')} style={{textDecoration: "none"}}>
 
               <ListItem className={item.get('haveImg')==='have-img' ? 'have-img' : ''} >
              {
@@ -122,6 +124,19 @@ import {Link} from 'react-router-dom'
       </div>
     )
   }
+  componentDidMount (){
+    this.bindScroll();
+  }
+  componentWillUnmount(){
+    window.removeEventListener('scroll',this.sendPageToLoad);
+  }
+  bindScroll(){
+    window.addEventListener('scroll',this.sendPageToLoad);
+  }
+  sendPageToLoad= () => {
+    this.props.autoLoadMore(this.props.page);
+    
+  }
 }
 
 
@@ -135,6 +150,13 @@ const mapDispatchToProps = (dispatch) => {
   return {
     loadMore: (page) => {      
       dispatch(getMoreArtListAction(page))
+    },
+    autoLoadMore: (page) => {
+      if(document.body.offsetHeight - 200 < window.screen.height + document.documentElement.scrollTop && page <= 3 ){   
+        console.log(document.documentElement.scrollTop);
+        dispatch(getMoreArtListAction(page));
+       }
+
     }
   }
 

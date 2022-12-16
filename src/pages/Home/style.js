@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import QRcode from '../../statics/assets/二维码.png'
 
 export const HomeWrapper = styled.div`
     padding-top: 56px;
@@ -102,7 +103,8 @@ export const BottomItem = styled.span`
         margin-right: 2px;
     }
 `;
-export const LoadMore = styled.div`
+export const LoadMore = styled.a`
+    display: block;
     width: 100%;
     height: 40px;
     border-radius: 20px;
@@ -118,6 +120,7 @@ export const LoadMore = styled.div`
 export const RecommendWrapper = styled.div`
     width: 280px;
     margin-top: -4px;
+   
 `;
 
 export const RecommendItem = styled.div`
@@ -129,6 +132,7 @@ export const RecommendItem = styled.div`
 `;
 
 export const DownLoadWrapper = styled.div`
+    position: relative;
     margin: 0 0 30px;
     padding: 10px 22px;
     width: 280px;
@@ -141,9 +145,42 @@ export const DownLoadWrapper = styled.div`
         width: 60px;
         vertical-align: middle;
     } 
-    &:hover {
-        background-color: red;
+   &:hover {
+        .download-qrcode-big {
+            display: block;
+        }
     }
+`;
+
+export const DownloadQrcodeBig = styled.div`
+    width: 185px;
+    height: 185px;
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    bottom: 90px;
+    left: 60px;
+    border-radius: 10px;
+    background-image: url(${QRcode});
+    background-size: 160px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 65%);
+    z-index: 10;
+    border: 1px solid #969696;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 23px;
+        height: 10px;
+        background-color: #fff;
+        position: absolute;
+        bottom: -10px;
+        left: 82.5px;
+        clip-path: polygon(0 0,50% 100%,100% 0);
+
+}
 `;
 
 export const DownloadInfo = styled.div`

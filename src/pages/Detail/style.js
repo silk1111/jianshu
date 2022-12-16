@@ -14,6 +14,8 @@ export const ArticleWrapper = styled.div`
     background-color: #fff;
     margin-right: 10px;
     width: 730px;
+    z-index: 1;
+
 `;
 
 export const ArticleTitle = styled.h1`

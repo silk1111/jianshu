@@ -66,6 +66,7 @@ const mapDispatchToProps = (dispatch) => {
   return{
     //获取首次加载页面时的HOME数据
     getHomeData : () => {
+
       dispatch(getHomeDataAction())
     },
     changeScrollTopShow: () => {

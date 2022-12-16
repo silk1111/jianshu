@@ -5,9 +5,9 @@ const defaultState = fromJS({
     searchFocused : false ,
     List : [],
     isArticle: false,
-    articleTitle: '文章标题',
-    articleImg:'https://img2.baidu.com/it/u=319818087,3660873740&fm=253&fmt=auto&app=138&f=JPEG?w=650&h=420',
-    articleAuthorName: '只如初见_2020'
+    articleTitle: '',
+    articleAuthorImg:'',
+    articleAuthorName: ''
 }) 
 const reducer =  (preState = defaultState,action) => {
      const {type, data} = action;
@@ -21,11 +21,12 @@ const reducer =  (preState = defaultState,action) => {
         case constants.CHANGE_LIST:
             return preState.set("List", data)
         case constants.CHANGE_HEADER_ARTICLE:
-            const {isArticle, articleTitle, articleAuthorName, articleImg} = data;
+            
+            const {isArticle, articleTitle, articleAuthorName, articleAuthorImg} = data;
             return preState.merge({
                 "isArticle":fromJS(isArticle),
                 "articleTitle":fromJS(articleTitle),
-                "articleImg": fromJS(articleImg),
+                "articleAuthorImg": fromJS(articleAuthorImg),
                 "articleAuthorName":fromJS(articleAuthorName),
             
             })

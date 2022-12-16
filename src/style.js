@@ -52,10 +52,15 @@ a {
     cursor: pointer;
     text-decoration: none;
     color: black;
+    z-index: 55;
 }
 *, ::after, ::before {
     box-sizing: border-box;
     font-family: -apple-system,SF UI Display,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+}
+body {
+   
+    user-select: none; /* 禁止鼠标拖动页面时选中页面文字 */
 }
 
 `

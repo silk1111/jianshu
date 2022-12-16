@@ -59,7 +59,9 @@ export const SignDownloadAPP = styled.div`
     
 `;
 
-export const DownloadQrcode = styled.div`
+export const SignDownloadQrcode = styled.div`
+    cursor: pointer;
+
     width: 46px;
     height: 46px;
     background-color: #fff;
@@ -67,6 +69,40 @@ export const DownloadQrcode = styled.div`
     background-size: 38px;//背景图片尺寸
     background-repeat: no-repeat;//不重复
     background-position: 4px 4px;//设置背景图片的位置，它通过设置水平x方向和垂直y方向的取值来到达效果
+    :hover {
+        .download-qrcode-big {
+            display: block;
+        }
+    }
+`;
+
+export const SignDownloadQrcodeBig = styled.div`
+    width: 160px;
+    height: 160px;
+    display: none;
+    background-color: #fff;
+    position: absolute;
+    top: -185px;
+    right: -25px;
+    border-radius: 10px;
+    background-image: url(${signDownloadQrcode});
+    background-size: 132px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
+    z-index: 10;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 33px;
+        height: 16px;
+        background-color: #fff;
+        position: absolute;
+        bottom: -16px;
+        right: 16px;
+        clip-path: polygon(0 0,50% 100%,100% 0);
+}
 `;
 
 export const SignMain = styled.div`
@@ -125,6 +161,7 @@ export const MoreSign = styled.div`
         width: 50px;
         height: 50px;
         font-size: 28px;
+        margin: 0 5px;
         display: inline-block;
         line-height: 50px;
         &.weibo {
@@ -141,16 +178,27 @@ export const MoreSign = styled.div`
         }
     }
     h6 {
-        ::before {
+        &::before {
+            content:"";
+            display: block;
             width: 60px;
             height:20px;;
-            background-color:blue;
             border-top: 1px solid #b5b5b5;
+            position: absolute;
+            top: 5px;
+            left: 25px;
         }
-        ::after {
+        &::after {
+            content:"";
+            display: block;
             width: 60px;
+            height:20px;;
             border-top: 1px solid #b5b5b5;
+            position: absolute;
+            top: 5px;
+            right: 25px;
         }
+        position: relative;
         color: #969696;
         margin-bottom: 10px;
         font-size: 12px;

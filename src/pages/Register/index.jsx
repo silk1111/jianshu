@@ -4,7 +4,8 @@ import {
     SignLogo,
     SignContainer,
     SignDownloadAPP,
-    DownloadQrcode,
+    SignDownloadQrcode,
+    SignDownloadQrcodeBig,
     SignMain,
     SignTitle,
     SignMainContainer,
@@ -25,7 +26,9 @@ export default class Login extends Component {
         <SignContainer>
           <SignDownloadAPP>
             <a className='download-btn'>下载简书APP</a>
-            <DownloadQrcode />
+            <SignDownloadQrcode >
+              <SignDownloadQrcodeBig ></SignDownloadQrcodeBig>
+            </SignDownloadQrcode>
           </SignDownloadAPP>
 
           <SignMain>
@@ -62,7 +65,7 @@ export default class Login extends Component {
                   </RegisterMsg>
               </form>
               <MoreSign>
-              <h6>---- 社交账号直接注册 ----</h6>
+              <h6>社交账号直接注册</h6>
               <i className='iconfont weixin' >&#xe602;</i>
               <i className='iconfont qq' >&#xe882;</i>
 

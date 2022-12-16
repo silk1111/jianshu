@@ -6,10 +6,12 @@ export const HeaderWrapper = styled.nav`
     left: 0;
     top:0;
     width: 100%;
+
     height: 56px;
     background-color: white;
     border-bottom: 1px solid #f0f0f0;
-    z-index: 999;
+    z-index: 9;
+    overflow:hidden;
 `;
 
 export const Logo = styled.a`
@@ -23,7 +25,7 @@ export const Logo = styled.a`
     background-size: contain;
 `;
 
-export const Nav = styled.div`
+export const Nav = styled.nav`
     margin: 0 auto;
     width:960px;
     height:56px;
@@ -38,6 +40,7 @@ export const NavItem = styled.div`
         font-size: 17px;
     }
     &.right {
+        
         float:right;
         color:#969696;
         font-size: 15px;
@@ -59,6 +62,7 @@ export const NavItem = styled.div`
     .bigSize {
         font-size: 21px;
     }
+    
     position: relative;
     height:56px;
     padding: 15px;
@@ -68,6 +72,7 @@ export const NavItem = styled.div`
     background: white;
     font-weight: 520;
 `;
+
 
 export const SearchWrapper = styled.div`
     float: left;
@@ -166,22 +171,27 @@ export const SearchInfoItem = styled.a`
     border-radius: 3px;
 `;
 
-export const Addition = styled.div`
-    position: absolute;
-    right: 0;
-    top: 0;
-    height:56px;
-`;
 
-export const Button = styled.button`
+
+
+
+export const Button = styled.a`
+    display: block;
     &.reg {
         color:  #ec6149;
         background: white;
+        float: right;
+        &:hover {
+            background-color: rgba(236,97,73,.1);
+        }
     }
     &.write {
         background: #ec6149;
         color: #fff;
+        float: right;
+
     }
+    
     .iconfont {
         margin-right: 5px;
     }
@@ -202,6 +212,8 @@ export const ArticleHeadWrapper = styled.div`
     min-height: 56px;
     max-height: 56px;
     width: 100%;
+    z-index: 9;
+
 `;
 
 export const ArticleHead = styled.div`
@@ -254,3 +266,64 @@ export const ArticleAuthor = styled.div`
 
     }
 `;
+
+export const UserImg = styled.div`
+    float:right;
+    height:100%;
+    color:#969696;
+    font-size: 15px;
+    margin: 0px 6px 0px 10px;
+    img {
+        
+
+        height: 40px;
+        max-height: 40px;
+        width: 40px;
+        max-width: 40px;
+        border-radius: 20px;
+        margin: 8px 24px 8px 16px;
+        
+    }
+    &:hover {
+        +.user-img-other {
+        display: block;
+
+    }
+    }
+    
+    
+       
+`
+export const UserImgOther = styled.div`
+    display: none;
+    position:absolute;
+    top:56px;
+    right:50px;
+    /* left: auto; */
+    height: 200px;
+    background-color:#fff;
+    box-shadow: 0 0 8px rgb(0 0 0 / 10%);//渐变边框
+    &:hover {
+        
+        display: block;
+
+    
+    }
+`
+export const OtherItem = styled.div`
+    padding: 10px 20px;
+    line-height: 30px;
+    min-width: 160px;
+    color: #333;
+    .iconfont {
+        color: #ec7259;
+        margin-right: 15px;
+        font-size: 18px;
+
+    }
+    &:hover {
+        
+        background-color:#eee;
+    
+    }
+`
